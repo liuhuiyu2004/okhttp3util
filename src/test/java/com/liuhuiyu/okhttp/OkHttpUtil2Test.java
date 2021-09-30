@@ -18,8 +18,8 @@ public class OkHttpUtil2Test {
 
     public void getOkHttpPrimeval() {
         String url = "http://127.0.0.1:9999/api/get/test";
-        OkHttpUtil2 okHttpUtil2 = OkHttpUtil2.create(url);
-        OkHttpUtil2.OkHttpPrimeval okHttpPrimeval = okHttpUtil2.getOkHttpPrimeval();
+        OkHttpUtil okHttpUtil2 = OkHttpUtil.create(url);
+        OkHttpUtil.OkHttpPrimeval okHttpPrimeval = okHttpUtil2.getOkHttpPrimeval();
         log.info("OkHttpClient.Builder:{}", okHttpPrimeval.getOkHttpClientBuilder());
         log.info("BodyBuilder.Builder:{}", okHttpPrimeval.getBodyBuilderBuilder());
         log.info("HttpUrl.Builder:{}", okHttpPrimeval.getHttpUrlBuilder());
@@ -31,10 +31,10 @@ public class OkHttpUtil2Test {
     @Test
     public void getNoParameters() {
         String url = "http://127.0.0.1:9999/api/get/test";
-        String s = OkHttpUtil2.create(url).get().executeToString();
+        String s = OkHttpUtil.create(url).get().executeToString();
         log.info(s);
-        String s2 = OkHttpUtil2.create(url)
-                .setMethodModel(OkHttpUtil2.MethodModel.GET)
+        String s2 = OkHttpUtil.create(url)
+                .setMethodModel(OkHttpUtil.MethodModel.GET)
                 .executeToString();
         log.info(s2);
     }
@@ -44,10 +44,10 @@ public class OkHttpUtil2Test {
         String url = "http://127.0.0.1:9999/api/get/test_p";
         String parameter = "轻微隐患";
         String parameterName = "p1";
-        String s = OkHttpUtil2.create(url)
+        String s = OkHttpUtil.create(url)
                 .addQueryParameter(parameterName, parameter)
                 .executeToString();
-        Map<String, Object> map = OkHttpUtil2.create(url)
+        Map<String, Object> map = OkHttpUtil.create(url)
                 .addQueryParameter(parameterName, parameter)
                 .executeToMap();
         log.info(s);
@@ -58,7 +58,7 @@ public class OkHttpUtil2Test {
     public void asynchronousExecute() throws InterruptedException {
         String url = "http://127.0.0.1:9999/api/get/test";
         AtomicBoolean b = new AtomicBoolean(true);
-        OkHttpUtil2.create(url).get().asynchronousExecute((call, response) -> {
+        OkHttpUtil.create(url).get().asynchronousExecute((call, response) -> {
             log.info("测试");
             b.set(false);
         }, (call, e) -> {
@@ -73,7 +73,7 @@ public class OkHttpUtil2Test {
     public void asynchronousExecuteToString() throws InterruptedException {
         String url = "http://127.0.0.1:9999/api/get/test";
         AtomicBoolean b = new AtomicBoolean(true);
-        OkHttpUtil2.create(url).get().asynchronousExecuteToString((str) -> {
+        OkHttpUtil.create(url).get().asynchronousExecuteToString((str) -> {
             log.info(str);
             b.set(false);
         }, (call, e) -> {
@@ -88,7 +88,7 @@ public class OkHttpUtil2Test {
     public void asynchronousExecuteToMap() throws InterruptedException {
         String url = "http://127.0.0.1:9999/api/get/test";
         AtomicBoolean b = new AtomicBoolean(true);
-        OkHttpUtil2
+        OkHttpUtil
                 .create(url)
                 .get()
                 .asynchronousExecuteToMap((map) -> {
@@ -105,7 +105,7 @@ public class OkHttpUtil2Test {
     @Test
     public void postNoParameters() {
         String url = "http://127.0.0.1:9999/api/post/test";
-        String s = OkHttpUtil2.create(url)
+        String s = OkHttpUtil.create(url)
                 .post()
                 .executeToString();
         log.info(s);
@@ -116,13 +116,13 @@ public class OkHttpUtil2Test {
         String url = "http://127.0.0.1:9999/api/post/test_p";
         String parameter = "轻微隐患";
         String parameterName = "p1";
-        String s = OkHttpUtil2.create(url)
+        String s = OkHttpUtil.create(url)
                 .addQueryParameter(parameterName, parameter)
                 .addBody(parameterName, parameter + "body传入")
                 .post()
                 .executeToString();
         log.info(s);
-        Map<String, Object> map = OkHttpUtil2.create(url)
+        Map<String, Object> map = OkHttpUtil.create(url)
                 .post()
                 .addQueryParameter(parameterName, parameter + "url传入")
                 .addBody(parameterName, parameter)
@@ -136,7 +136,7 @@ public class OkHttpUtil2Test {
         final String CONTRACTOR_PERSONNEL_INFORMATION_URL = "https://safety-vsmapi.geg.com.cn/WebService.asmx/GetDataRequest";
         String strJson = "{\"userName\":\"zhAdmin\",\"userPwd\":\"zh@2021\"}";
         String method = "application/json";
-        Map<String, Object> map = OkHttpUtil2
+        Map<String, Object> map = OkHttpUtil
                 .create(GET_TOKEN_URL)
                 .setBody(strJson, method)
                 .post()
@@ -145,7 +145,7 @@ public class OkHttpUtil2Test {
         String token = map.get("token").toString();
         String cardNo = "440421198903088237";
         String findJson = getJson(token, cardNo);
-        Map<String, Object> map2 = OkHttpUtil2
+        Map<String, Object> map2 = OkHttpUtil
                 .create(CONTRACTOR_PERSONNEL_INFORMATION_URL)
                 .setBody(findJson, method)
                 .post()

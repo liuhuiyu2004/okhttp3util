@@ -24,7 +24,7 @@ public class ArrangeTransformUtil {
      * 使用函数式将String转换成Map
      *
      * @param supplier 数据获取函数式
-     * @return java.util.Map<java.lang.String, java.lang.Object>
+     * @return java.util.Map
      * @author LiuHuiYu
      * Created DateTime 2021-04-16 9:08
      */
@@ -37,7 +37,7 @@ public class ArrangeTransformUtil {
      * 将json字符串转换成Map
      *
      * @param strJson json字符串
-     * @return java.util.Map<java.lang.String, java.lang.Object>
+     * @return java.util.Map
      * @author LiuHuiYu
      * Created DateTime 2021-03-30 9:04
      */

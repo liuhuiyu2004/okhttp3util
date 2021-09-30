@@ -6,7 +6,7 @@
 
     <groupId>com.liuhuiyu</groupId>
     <artifactId>okhttp3util</artifactId>
-    <version>2021.2.0</version>
+    <version>2021.3.0</version>
     <packaging>jar</packaging>
 
     <!--region 配置-->
@@ -18,9 +18,13 @@
         </license>
     </licenses>
     <scm>
+<!--
+        <url>https://github.com/liuhuiyu2004/okhttp3util.git</url>
+        <connection>scm:git:git@github.com:liuhuiyu2004/okhttp3util.git</connection>
+-->
         <url>https://github.com/liuhuiyu2004/util.git</url>
-        <connection>scm:git:git@github.com:liuhuiyu2004/util.git</connection>
-        <developerConnection>scm:git:git@github.com:liuhuiyu2004/util.git</developerConnection>
+        <connection>https://github.com/liuhuiyu2004/util</connection>
+        <developerConnection>scm:git:git@github.com:liuhuiyu2004/okhttp3util.git</developerConnection>
     </scm>
     <developers>
         <developer>
@@ -78,20 +82,20 @@
                         </executions>
                     </plugin>
                     <!--  必须配置GPG插件用于使用以下配置对组件进行签名 -->
-                    <!--                    <plugin>-->
-                    <!--                        <groupId>org.apache.maven.plugins</groupId>-->
-                    <!--                        <artifactId>maven-gpg-plugin</artifactId>-->
-                    <!--                        <version>1.6</version>-->
-                    <!--                        <executions>-->
-                    <!--                            <execution>-->
-                    <!--                                <id>sign-artifacts</id>-->
-                    <!--                                <phase>verify</phase>-->
-                    <!--                                <goals>-->
-                    <!--                                    <goal>sign</goal>-->
-                    <!--                                </goals>-->
-                    <!--                            </execution>-->
-                    <!--                        </executions>-->
-                    <!--                    </plugin>-->
+<!--                    <plugin>-->
+<!--                        <groupId>org.apache.maven.plugins</groupId>-->
+<!--                        <artifactId>maven-gpg-plugin</artifactId>-->
+<!--                        <version>1.6</version>-->
+<!--                        <executions>-->
+<!--                            <execution>-->
+<!--                                <id>sign-artifacts</id>-->
+<!--                                <phase>verify</phase>-->
+<!--                                <goals>-->
+<!--                                    <goal>sign</goal>-->
+<!--                                </goals>-->
+<!--                            </execution>-->
+<!--                        </executions>-->
+<!--                    </plugin>-->
                 </plugins>
             </build>
             <!-- 【注】snapshotRepository 与 repository 中的 id 一定要与 setting.xml 中 server 的 id 保持一致！ -->
@@ -196,22 +200,22 @@
                     </execution>
                 </executions>
             </plugin>
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-source-plugin</artifactId>-->
-<!--                <version>3.0.0</version>-->
-<!--                &lt;!&ndash; 绑定source插件到Maven的生命周期,并在生命周期后执行绑定的source的goal &ndash;&gt;-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        &lt;!&ndash; 绑定source插件到Maven的生命周期 &ndash;&gt;-->
-<!--                        <phase>compile</phase>-->
-<!--                        &lt;!&ndash;在生命周期后执行绑定的source插件的goals &ndash;&gt;-->
-<!--                        <goals>-->
-<!--                            <goal>jar-no-fork</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
+            <!--            <plugin>-->
+            <!--                <groupId>org.apache.maven.plugins</groupId>-->
+            <!--                <artifactId>maven-source-plugin</artifactId>-->
+            <!--                <version>3.0.0</version>-->
+            <!--                &lt;!&ndash; 绑定source插件到Maven的生命周期,并在生命周期后执行绑定的source的goal &ndash;&gt;-->
+            <!--                <executions>-->
+            <!--                    <execution>-->
+            <!--                        &lt;!&ndash; 绑定source插件到Maven的生命周期 &ndash;&gt;-->
+            <!--                        <phase>compile</phase>-->
+            <!--                        &lt;!&ndash;在生命周期后执行绑定的source插件的goals &ndash;&gt;-->
+            <!--                        <goals>-->
+            <!--                            <goal>jar-no-fork</goal>-->
+            <!--                        </goals>-->
+            <!--                    </execution>-->
+            <!--                </executions>-->
+            <!--            </plugin>-->
 
         </plugins>
     </build>
